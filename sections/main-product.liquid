@@ -1033,7 +1033,9 @@
           endif
         -%}
 
-        <script src="{{ 'magnify.js' | asset_url }}" defer="defer"></script>
+        {% if section.settings.image_zoom == 'hover' %}
+          <script src="{{ 'magnify.js' | asset_url }}" defer="defer"></script>
+        {% endif %}
         {%- for media in product.media -%}
           {%- liquid
             if section.settings.hide_variants and variant_images contains media.src
