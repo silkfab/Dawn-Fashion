@@ -30,8 +30,14 @@ const magnify = (image, zoomRatio) => {
   overlay.onmousemove = (event) => moveWithHover(image, event, zoomRatio);
 }
 
-const images = document.querySelectorAll('.image--hover');
+const enableZoomOnHover = () => {
+  const images = document.querySelectorAll('.image--hover');
+  images && images.forEach(image => {
+    image.onclick = () => magnify(image, 2);
+  });
+}
 
-images && images.forEach(image => {
-  image.onclick = () => magnify(image, 2);
-});
+enableZoomOnHover();
+
+// also enable in theme editor
+document.addEventListener('shopify:section:load', () => enableZoomOnHover());
