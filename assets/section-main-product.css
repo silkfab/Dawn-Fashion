@@ -1145,10 +1145,21 @@ a.product__text {
 .image--full-size {
   cursor: zoom-out;
   z-index: 1;
+  margin: 0;
 }
 
-.image--original {
+.image--hover {
   cursor: zoom-in;
+}
+
+.lightbox-button--none {
+  pointer-events: none;
+}
+
+@media (hover: hover) {
+  .lightbox-button--hover {
+    pointer-events: none;
+  }
 }
 
 .product__media-container {

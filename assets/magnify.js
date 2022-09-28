@@ -30,8 +30,8 @@ const magnify = (image, zoomRatio) => {
   overlay.onmousemove = (event) => moveWithHover(image, event, zoomRatio);
 }
 
-const images = document.querySelectorAll('.image--original');
+const images = document.querySelectorAll('.image--hover');
 
-images.forEach(image => {
-  image.onclick = () => magnify(image, 3);
+images && images.forEach(image => {
+  image.onclick = () => magnify(image, 2);
 });
