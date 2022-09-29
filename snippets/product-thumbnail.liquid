@@ -38,7 +38,9 @@
     assign mobile_columns = 2
   endif
 
-  assign image_class = 'image--' | append: section.settings.image_zoom
+  if media.media_type == 'image'
+    assign image_class = 'image--' | append: section.settings.image_zoom
+  endif
 -%}
 
 {%- capture sizes -%}
