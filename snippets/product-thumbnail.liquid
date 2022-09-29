@@ -72,20 +72,18 @@
 </noscript>
 
 <modal-opener class="product__modal-opener product__modal-opener--{{ media.media_type }} no-js-hidden" data-modal="#ProductModal-{{ modal_id }}">
-  {%- if section.settings.image_zoom == 'lightbox' %}
-    <span class="product__media-icon motion-reduce quick-add-hidden" aria-hidden="true">
-      {%- liquid
-        case media.media_type
-        when 'video' or 'external_video'
-          render 'icon-play'
-        when 'model'
-          render 'icon-3d-model'
-        else
-          render 'icon-zoom'
-        endcase
-      -%}
-    </span>
-  {%- endif %}
+  <span class="product__media-icon motion-reduce quick-add-hidden" aria-hidden="true">
+    {%- liquid
+      case media.media_type
+      when 'video' or 'external_video'
+        render 'icon-play'
+      when 'model'
+        render 'icon-3d-model'
+      else
+        render 'icon-zoom'
+      endcase
+    -%}
+  </span>
 
   <div class="product__media product__media-container media media--transparent gradient global-media-settings" style="padding-top: {{ 1 | divided_by: media.preview_image.aspect_ratio | times: 100 }}%;">
     {{ media.preview_image | image_url: width: 1946 | image_tag:
