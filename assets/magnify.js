@@ -28,6 +28,7 @@ const magnify = (image, zoomRatio) => {
 
   overlay.onclick = () => overlay.remove();
   overlay.onmousemove = (event) => moveWithHover(image, event, zoomRatio);
+  overlay.onmouseleave = () => overlay.remove();
 }
 
 const enableZoomOnHover = () => {
